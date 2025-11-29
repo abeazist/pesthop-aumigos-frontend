@@ -1,0 +1,162 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --vermelho: #eb2404;
+    --vermelhoEscuro: #870b0c;
+    --azulClaro: #c3ecfe;
+    --amarelo: #ffffba;
+    --branco: #ffffff;
+    --preto: black;
+    --cinzaClaro: #F9F7F7;
+    --cinzaMedio: #E7E7E7;
+    --cinzaEscuro: #9F9F9F;
+}
+
+.boxPerfilTutor {
+    width: 85vw;
+    height: 100vh;
+    background-color: var(--branco);
+    display: flex;
+    flex-direction: column;
+}
+
+h5 {
+    margin-top: 10px;
+    /* margin-left: 10px; */
+    margin-bottom: 10px;
+}
+
+#h5MeuPerfil {
+    margin-left: 36px;
+}
+
+#meuPerfil {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+    /* espaço entre as colunas */
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+
+}
+
+
+#fotoPerfilTutor {
+    width: 18vw;
+    position: relative;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-self: center; */
+}
+
+#ft {
+    border-radius: 100%;
+    width: 200px;
+    height: 200px;
+    background-color: var(--cinzaMedio);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+
+}
+
+#btEditaFotoTutor {
+    background-color: var(--amarelo);
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 0;
+    right: 5vw;
+}
+
+#campoEditaPerfil {
+    display: flex;
+}
+
+.colunaInput {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.inputPerfil {
+    background-color: var(--cinzaMedio);
+    border: none;
+    border-radius: 5px;
+    width: 25vw;
+    height: 5vh;
+    gap: 0;
+}
+
+#btEditPerfil {
+    background-color: var(--azulClaro);
+    border-radius: 8px;
+    width: 10vw;
+    height: 5vh;
+    /* margin-top: 20px; */
+    /* display: flex; */
+    /* align-self: flex-end; */
+
+    right: 2vw;
+}
+
+#meusPets {
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    /* align-items: center; */
+    /* justify-content: center; */
+    width: 100%;
+}
+
+.petFotoPerfil {
+    border-radius: 100%;
+}
+
+#btAdicionaPet {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background-color: var(--cinzaMedio);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.listPets {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+#userPet {
+    border-radius: 100%;
+    width: 200px;
+    height: 200px;
+    background-color: var(--cinzaMedio);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+}
+
+hr {
+    width: 100%;
+    align-self: center;
+}

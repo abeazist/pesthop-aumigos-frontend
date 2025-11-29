@@ -1,0 +1,44 @@
+*{
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.boxMenu{
+    background-color: var(--cinzaClaro);
+    width: 15vw;
+    height: 100vh;
+}
+
+#menu1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#logoPetshop{
+    width: 50%;
+    margin-top: 20px;
+}
+
+hr{
+    width: 90%;
+}
+
+#home, #meuPerfilMenu, #agendamento, #historico{
+    display: flex;
+    flex-direction: row;
+    color: black;
+  
+}
+
+nav a{
+    text-decoration: none;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+#iconHome, #iconUser, #iconCalendario, #iconHistorico{
+    padding-right: 5px;
+}

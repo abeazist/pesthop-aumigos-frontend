@@ -1,0 +1,218 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --vermelho: #eb2404;
+    --vermelhoEscuro: #870b0c;
+    --azulClaro: #c3ecfe;
+    --amarelo: #ffffba;
+    --branco: #ffffff;
+    --preto: black;
+    --cinzaClaro: #F9F7F7;
+    --cinzaMedio: #f2f2f2;
+    /* --cinzaMedio: #E7E7E7; */
+    --cinzaEscuro: #9F9F9F;
+}
+
+#logoMenuHorizontal{
+    width: 60px;
+    align-self: center;
+    justify-self: flex-start;
+    padding-left: 15px;
+    border-radius: 10px;
+}
+
+.menuHorizontal{
+    background-color: var(--cinzaMedio);
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+#itensMenuH{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 45%;
+    height: 100%;
+}
+
+#itensMenuH p{
+    margin: 0;
+    color: var(--preto);
+}
+
+a{
+    text-decoration: none !important;
+}
+
+
+
+
+.btHome{
+    border-radius: 8px;
+    background-color: var(--cinzaEscuro);
+}
+
+.containerHome {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.pg1 {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#snoopyCasaHome{
+    width: 30%;
+    
+}
+
+#sobrePetshop {
+    width: 60%;
+    padding-left: 10%;
+}
+
+#divFotoHome {
+    /* max-width: 400px; */
+    width: 40%;
+}
+
+#fotoHome {
+    width: 80%;
+    height: auto;
+    border-radius: 20px;
+}
+
+#descricaoPetshop {
+    width: 70%;
+}
+
+.pg2 {
+    width: 100%;
+    height: 70vh;
+    background-color: var(--amarelo);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#corpoP2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.list1 {
+    width: 50%;
+    /* display: flex; */
+    padding-left: 5%;
+}
+
+.list2 {
+    width: 50%;
+    padding-right: 5%;
+    /* display: flex; */
+}
+
+#banho,
+#tosa,
+#produtos,
+#combo {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+}
+
+#banhoInfos,
+#tosaInfos,
+#produtosInfos,
+#comboInfos {
+    width: 85%;
+}
+
+#iconeBanheira,
+#iconeTesoura,
+#iconeShop,
+#iconeCombo {
+    width: 15%;
+}
+
+#h2Servicos {
+    align-self: center;
+}
+
+#btAgendamentoHome {
+    border-radius: 8px;
+    background-color: var(--azulClaro);
+}
+
+.pg-3galeriaPets {
+    width: 100%;
+    height: 80vh;
+
+    display: flex;
+    flex-direction: column; /* empilha o h3 + swiper */
+    align-items: center; /* centraliza horizontalmente */
+    /* justify-content: flex-start; evita esticar demais */
+    padding-top: 30px;
+}
+
+.pg-3galeriaPets p{
+    font-size: 2rem;
+}
+
+.pg-3galeriaPets .swiper {
+    width: 80%; /* ajuste como quiser */
+    max-width: 90%; /* impede ficar muito grande em telas largas */
+    padding-top: 20px;
+    
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: white !important;
+}
+
+
+.pg4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+
+    background-image: url("patinhas.jpg");
+    background-position: 30px;
+    background-repeat: no-repeat;
+}

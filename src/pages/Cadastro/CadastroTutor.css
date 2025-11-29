@@ -1,0 +1,12 @@
+
+
+#cadFotoTutor{
+    background-color: var(--branco);
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
