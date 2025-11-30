@@ -14,7 +14,7 @@ export default function CadastroPet() {
                         </div>
                     </div>
                     <div id='inputBox2'>
-                        <label htmlFor="">Simpatinhas</label>
+                        <label htmlFor="">Sinpatinhas</label>
                         <input type="text" className='inputFormulario' />
                         <br />
                         <label htmlFor="">Nome</label>
