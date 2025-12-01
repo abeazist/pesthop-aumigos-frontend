@@ -1,50 +1,106 @@
 import './CadastroTutor.css'
 import { Camera } from "phosphor-react";
+import { useState } from "react";
 
 export default function CadastroTutor() {
+
+    const [form, setForm] = useState({
+        nome: "",
+        cpf: "",
+        telefone: "",
+        rua: "",
+        bairro: "",
+        numero: "",
+        email: "",
+        senha: ""
+    });
+
+    function handleChange(e) {
+        setForm({ ...form, [e.target.name]: e.target.value });
+    }
+
+    async function handleSubmit() {
+        const body = {
+            nome: form.nome,
+            cpf: form.cpf,
+            telefone: form.telefone,
+            endereco: `${form.rua}, ${form.numero} - ${form.bairro}`,
+            email: form.email,
+            senha: form.senha
+        };
+
+        try {
+            const response = await fetch("https://petshop-aumigos-backend.onrender.com/api/usuario", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(body)
+            });
+
+            if (!response.ok) {
+                const err = await response.json();
+                throw new Error(err.error || "Erro ao cadastrar");
+            }
+
+            const data = await response.json();
+            alert("Tutor cadastrado com sucesso!");
+            console.log(data);
+
+        } catch (err) {
+            alert(err.message || "Erro ao cadastrar usuário");
+            console.error(err);
+        }
+    }
 
     return (
         <div className='boxCadastroPet'>
             <div className='formulario'>
                 <h3>Cadastro Tutor</h3>
+
                 <div className='f1'>
                     <div id='inputBox1'>
                         <div id='cadFotoTutor'>
                             <Camera size={32} />
                         </div>
                     </div>
-                    <div id='inputBox2'>
-                        <label htmlFor="">Nome</label>
-                        <input type="text" className='inputFormulario' />
-                        <br />
-                        <label htmlFor="">CPF</label>
-                        <input type="text" className='inputFormulario' />
 
+                    <div id='inputBox2'>
+                        <label>Nome</label>
+                        <input name="nome" type="text" className='inputFormulario' onChange={handleChange} />
+
+                        <label>CPF</label>
+                        <input name="cpf" type="text" className='inputFormulario' onChange={handleChange} />
+
+                        <label>Email</label>
+                        <input name="email" type="email" className='inputFormulario' onChange={handleChange} />
+
+                        <label>Senha</label>
+                        <input name="senha" type="password" className='inputFormulario' onChange={handleChange} />
                     </div>
                 </div>
+
                 <div className='f2'>
                     <div id='inputBox3'>
-                        <label htmlFor="">Telefone</label>
-                        <input type="text" className='inputFormulario' />
-                        <br />
-                        <label htmlFor="">Rua</label>
-                        <input type="text" className='inputFormulario' />
+                        <label>Telefone</label>
+                        <input name="telefone" type="text" className='inputFormulario' onChange={handleChange} />
+
+                        <label>Rua</label>
+                        <input name="rua" type="text" className='inputFormulario' onChange={handleChange} />
                     </div>
+
                     <div id='inputBox4'>
-                        <label htmlFor="">Bairro</label>
-                        <input type="text" className='inputFormulario' />
-                        <br />
-                        <label htmlFor="">Número</label>
-                        <input type="number" className='inputFormulario' />
+                        <label>Bairro</label>
+                        <input name="bairro" type="text" className='inputFormulario' onChange={handleChange} />
+
+                        <label>Número</label>
+                        <input name="numero" type="number" className='inputFormulario' onChange={handleChange} />
                     </div>
                 </div>
 
-                <button id='btCadastra'>Cadastrar</button>
+                <button id='btCadastra' onClick={handleSubmit}>Cadastrar</button>
                 <button id='btCancela'>Cancelar</button>
             </div>
-
         </div>
-    )
-
-
+    );
 }
