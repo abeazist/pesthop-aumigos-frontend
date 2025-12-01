@@ -54,7 +54,7 @@ export default function Home() {
                 <div id="sobrePetshop">
                     <img src="snoopyHouse.png" id="snoopyCasaHome" />
                     <h1>Esnupi pet shop</h1>
-                    <h5>Cuidando do seu pet com amor de verdade.”</h5>
+                    <h5>Cuidando do seu pet com amor de verdade</h5>
                     <p id="descricaoPetshop">Somos apaixonados por animais e dedicados a oferecer uma experiência completa para você e seu pet. Do banho & tosa aos acessórios mais estilosos, aqui você encontra tudo o que precisa em um só lugar.</p>
                 </div>
 
@@ -149,7 +149,9 @@ export default function Home() {
             </div>
             <div className="pg4" id="pg4">
                 <h3>Faça agora um agendamento!</h3>
+                <br />
                 <p>Garantimos o bem-estar dos pets através de cuidados profissionais e muito carinho</p>
+                <br />
                 <NavLink to="/Agendamento">
                     <button id="btAgendamentoHome">Fazer um agendamento</button>
                 </NavLink>

@@ -23,31 +23,34 @@ export default function PerfilTutor() {
                     <br />
 
                     <label>Nome</label>
-                    <input type="text" className="inputPerfil"/>
+                    <input type="text" className="inputPerfil" />
 
                     <br />
                     <label>Rua</label>
-                    <input type="text" className="inputPerfil"/>
+                    <input type="text" className="inputPerfil" />
                 </div>
 
                 <div className="colunaInput">
                     <label>Telefone</label>
-                    <input type="text" className="inputPerfil"/>
+                    <input type="text" className="inputPerfil" />
                     <br />
 
                     <label>Bairro</label>
-                    <input type="text" className="inputPerfil"/>
+                    <input type="text" className="inputPerfil" />
                     <br />
 
                     <label>Número</label>
-                    <input type="number" className="inputPerfil"/>
+                    <input type="number" className="inputPerfil" />
 
                 </div>
             </div>
             <br />
-            <NavLink to="/EdicaoTutor">
-                <button id="btEditPerfil">Editar perfil</button>
-            </NavLink>
+            <div className="btEditWrapper">
+                <NavLink to="/EdicaoTutor" className="navBtn">
+                    <button id="btEditPerfil">Editar perfil</button>
+                </NavLink>
+
+            </div>
             <hr />
             <div id="meusPets">
                 <h5>Meus Pets</h5>

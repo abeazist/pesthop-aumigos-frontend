@@ -40,11 +40,11 @@ export default function EdicaoTutor() {
                     </div>
                 </div>
 
-                <NavLink to="/PerfilTutor">
+                <NavLink to="/PerfilTutor" className="btnLink">
                     <button id='btSalvaAlteracao'>Salvar Alterações</button>
                 </NavLink>
 
-                <NavLink to="/PerfilTutor">
+                <NavLink to="/PerfilTutor" className="btnLink">
                     <button id='btCancela'>Cancelar</button>
                 </NavLink>
             </div>

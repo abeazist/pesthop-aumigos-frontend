@@ -1,6 +1,7 @@
 import "./Login.css";
 import snoopy from "../../assets/snoopy.png";
 import { useState } from "react";
+import { NavLink } from 'react-router-dom'
 
 export default function Login() {
 
@@ -61,7 +62,11 @@ export default function Login() {
           Login
         </button>
 
-        <a className="create-account">Criar Conta</a>
+        {/* <a className="create-account">Criar Conta</a> */}
+
+        <NavLink to="/CadastroTutor">
+          <button className="create-account">Criar Conta</button>
+        </NavLink>
       </div>
     </div>
   );

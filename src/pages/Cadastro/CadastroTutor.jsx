@@ -1,6 +1,7 @@
 import './CadastroTutor.css'
 import { Camera } from "phosphor-react";
 import { useState } from "react";
+import { NavLink } from 'react-router-dom'
 
 export default function CadastroTutor() {
 
@@ -98,8 +99,13 @@ export default function CadastroTutor() {
                     </div>
                 </div>
 
-                <button id='btCadastra' onClick={handleSubmit}>Cadastrar</button>
-                <button id='btCancela'>Cancelar</button>
+                <NavLink to="/PerfilTutor" className="btnLink">
+                    <button id='btCadastra' onClick={handleSubmit}>Cadastrar</button>
+                </NavLink>
+
+                <NavLink to="/Login" className="btnLink">
+                    <button id='btCancela'>Cancelar</button>
+                </NavLink>
             </div>
         </div>
     );

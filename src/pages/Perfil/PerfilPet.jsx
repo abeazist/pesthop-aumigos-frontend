@@ -18,35 +18,37 @@ export default function PerfilPet() {
                 </div>
                 <div className="colunaInput">
                     <label>Simpatinhas</label>
-                    <input type="text" className="inputPerfil"/>
+                    <input type="text" className="inputPerfil" />
                     <br />
 
                     <label>Tutor</label>
-                    <input type="text" className="inputPerfil"/>
+                    <input type="text" className="inputPerfil" />
 
                     <br />
                     <label>Tipo</label>
-                    <input type="text" className="inputPerfil"/>
+                    <input type="text" className="inputPerfil" />
                 </div>
 
                 <div className="colunaInput">
                     <label>Nome</label>
-                    <input type="text" className="inputPerfil"/>
+                    <input type="text" className="inputPerfil" />
                     <br />
 
                     <label>Raça</label>
-                    <input type="text" className="inputPerfil"/>
+                    <input type="text" className="inputPerfil" />
                     <br />
 
                     <label>Data de Nascimento</label>
-                    <input type="number" className="inputPerfil"/>
+                    <input type="number" className="inputPerfil" />
 
                 </div>
             </div>
             <br />
-            <NavLink to="/EdicaoPet">
-                <button id="btEditPerfil">Editar perfil</button>
-            </NavLink>
+            <div>
+                <NavLink to="/EdicaoPet" className="btEditWrapper">
+                    <button id="btEditPerfil">Editar perfil</button>
+                </NavLink>
+            </div>
             <hr />
             <div id="meusPets">
                 <h5>Outros Pets</h5>

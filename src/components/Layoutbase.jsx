@@ -29,7 +29,7 @@ export default function Layoutbase() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          padding: "20px"
+          // padding: "20px"
         }}
       >
         <Outlet />

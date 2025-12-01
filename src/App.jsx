@@ -16,13 +16,13 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/Login" element={<Login />} />
-        <Route path="/CadastroTutor" element={<CadastroTutor />} />
 
         <Route path="Home" element={<Home />} />
         <Route path="/" element={<Home />} />
 
         {/* <Route path="/" element={<Home />}/> */}
         <Route element={<Layoutbase />}>
+          <Route path="CadastroTutor" element={<CadastroTutor />} />
           <Route path="Agendamento" element={<Agendamento />} />
           <Route path="CadastroPet" element={<CadastroPet />} />
           <Route path="Historico" element={<Historico />} />

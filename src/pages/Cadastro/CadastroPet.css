@@ -62,17 +62,21 @@
 }
 
 
-#btCadastra {
+#btCadastra{
     background-color: var(--verde);
     border-radius: 15px;
-    width: 95%;
-    margin-bottom: 10px;
+    width: 100%;
+    margin-bottom: 10px; 
 }
 
-#btCancela {
+.btnLink{
+    width: 90%;
+}
+
+#btCancela{
     background-color: var(--cinzaEscuro);
     border-radius: 15px;
-    width: 95%;
+    width: 100%;
     margin-bottom: 10px;
 }
 

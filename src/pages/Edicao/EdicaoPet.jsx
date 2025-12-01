@@ -40,11 +40,11 @@ export default function EdicaoPet() {
                     </div>
                 </div>
 
-                <NavLink to="/PerfilPet">
+                <NavLink to="/PerfilPet" className="btnLink">
                     <button id='btSalvaAlteracao'>Salvar Alterações</button>
                 </NavLink>
 
-                <NavLink to="/PerfilPet">
+                <NavLink to="/PerfilPet" className="btnLink">
                     <button id='btCancela'>Cancelar</button>
                 </NavLink>
             </div>
