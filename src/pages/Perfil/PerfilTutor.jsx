@@ -71,6 +71,8 @@ export default function PerfilTutor() {
                             <Plus size={32} />
                         </button>
                     </NavLink>
+
+                    <NavLink  to="/CadastroTutor">criar tutor</NavLink>
                 </div>
             </div>
 
