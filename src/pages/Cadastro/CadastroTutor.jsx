@@ -31,7 +31,7 @@ export default function CadastroTutor() {
         };
 
         try {
-            const response = await fetch("https://petshop-aumigos-backend-obkh.onrender.com/api/usuario", {
+            const response = await fetch("https://petshop-aumigos-backend.onrender.com/api/usuario", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
