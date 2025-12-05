@@ -1,0 +1,113 @@
+.listaPets-container {
+  width: 95%;
+  margin: 20px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.listaPets-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.listaPets-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.btn-novo {
+  padding: 8px 14px;
+  background: #8b0000;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.2s;
+}
+
+.btn-novo:hover {
+  background: #a30000;
+}
+
+.filtro-area {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filtro-area input {
+  width: 240px;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.btn-filtrar {
+  padding: 8px 14px;
+  background: #8b0000;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.btn-filtrar:hover {
+  background: #a30000;
+}
+
+.pets-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pets-table th {
+  text-align: left;
+  background: #f1f1f1;
+  padding: 12px;
+  font-weight: 600;
+}
+
+.pets-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.pet-foto {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd;
+}
+
+/* AÇÕES */
+.acoes {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-edit,
+.btn-delete {
+  background: #eee;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: .2s;
+  font-size: 1rem;
+}
+
+.btn-edit:hover {
+  background: #dcdcdc;
+}
+
+.btn-delete:hover {
+  background: #ffdddd;
+}
