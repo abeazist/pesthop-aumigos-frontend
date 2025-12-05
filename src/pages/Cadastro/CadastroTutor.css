@@ -10,3 +10,14 @@
     justify-content: center;
     align-items: center;
 }
+
+.formularioTutor {
+    width: 50vw;
+    height: 90vh;
+    background-color: var(--cinzaMedio);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

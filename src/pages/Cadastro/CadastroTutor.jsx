@@ -31,7 +31,7 @@ export default function CadastroTutor() {
         };
 
         try {
-            const response = await fetch("http://localhost:5173", {
+            const response = await fetch("http://localhost:8000/api/usuario", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -56,7 +56,7 @@ export default function CadastroTutor() {
 
     return (
         <div className='boxCadastroPet'>
-            <div className='formulario'>
+            <div className='formularioTutor'>
                 <h3>Cadastro Tutor</h3>
 
                 <div className='f1'>
