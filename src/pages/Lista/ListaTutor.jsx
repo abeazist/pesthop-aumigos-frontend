@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./ListaTutor.css";
 
 export default function ListaTutor() {
@@ -6,7 +7,7 @@ export default function ListaTutor() {
   const [busca, setBusca] = useState("");
 
   useEffect(() => {
-    //depois troca pela API real
+    //depois troca pela API 
     setTutores([
       {
         id: 1,
@@ -47,7 +48,10 @@ export default function ListaTutor() {
     <div className="listaTutor-container">
       <div className="listaTutor-header">
         <h2>Tutores</h2>
-        <button className="btn-novo">Novo Tutor</button>
+
+        <NavLink to="/CadastroTutor" className="btn-novo">
+          Novo Tutor
+        </NavLink>
       </div>
 
       <div className="filtro-area">
@@ -80,7 +84,13 @@ export default function ListaTutor() {
               <td>{tutor.cpf}</td>
 
               <td className="acoes">
-                <button className="btn-edit">✏️</button>
+                <NavLink
+                  to={`/EdicaoTutor`}
+                  className="btn-edit"
+                >
+                  ✏️
+                </NavLink>
+
                 <button className="btn-delete">🗑️</button>
               </td>
             </tr>

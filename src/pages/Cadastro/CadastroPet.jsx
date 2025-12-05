@@ -187,7 +187,7 @@ export default function CadastroPet() {
                     <button id='btCadastra'>Cadastrar</button>
                 </NavLink>
 
-                <NavLink to="/PerfilTutor" className="btnLink">
+                <NavLink to="/ListaPet" className="btnLink">
                     <button id='btCancela'>Cancelar</button>
                 </NavLink>
             </div>

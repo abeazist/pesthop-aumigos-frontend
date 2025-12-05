@@ -44,7 +44,7 @@ export default function EdicaoTutor() {
                     <button id='btSalvaAlteracao'>Salvar Alterações</button>
                 </NavLink>
 
-                <NavLink to="/PerfilTutor" className="btnLink">
+                <NavLink to="/ListaTutor" className="btnLink">
                     <button id='btCancela'>Cancelar</button>
                 </NavLink>
             </div>

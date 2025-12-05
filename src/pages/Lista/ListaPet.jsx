@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./ListaPet.css";
 
 export default function ListaPet() {
@@ -34,7 +35,9 @@ export default function ListaPet() {
       <div className="listaPets-header">
         <h2>Pets</h2>
 
-        <button className="btn-novo">Novo Pet</button>
+        <NavLink to="/CadastroPet" className="btn-novo">
+          Novo Pet
+        </NavLink>
       </div>
 
       <div className="filtro-area">
@@ -69,7 +72,15 @@ export default function ListaPet() {
               <td>{pet.dono}</td>
 
               <td className="acoes">
-                <button className="btn-edit">✏️</button>
+                <NavLink
+                  to={`/EdicaoPet`}
+                  //                  to={`/EdicaoPet/${pet.id}`}
+
+                  className="btn-edit"
+                >
+                  ✏️
+                </NavLink>
+
                 <button className="btn-delete">🗑️</button>
               </td>
             </tr>

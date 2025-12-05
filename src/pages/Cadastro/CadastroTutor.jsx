@@ -103,7 +103,7 @@ export default function CadastroTutor() {
                     <button id='btCadastra' onClick={handleSubmit}>Cadastrar</button>
                 </NavLink>
 
-                <NavLink to="/Login" className="btnLink">
+                <NavLink to="/ListaTutor" className="btnLink">
                     <button id='btCancela'>Cancelar</button>
                 </NavLink>
             </div>
