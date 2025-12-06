@@ -34,6 +34,7 @@ function App() {
           <Route path="PerfilPet" element={<PerfilPet />} />
           <Route path="EdicaoPet" element={<EdicaoPet />} />
           <Route path="EdicaoTutor" element={<EdicaoTutor />} />
+          <Route path="EdicaoTutor/:id" element={<EdicaoTutor />} />
 
         </Route>
 

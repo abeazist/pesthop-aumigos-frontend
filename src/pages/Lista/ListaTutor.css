@@ -118,8 +118,9 @@
   transition: 0.2s;
 }
 
-.btn-edit:hover {
-  transform: scale(1.1);
+
+.btn-edit svg{
+  color: black;
 }
 
 .btn-del:hover {

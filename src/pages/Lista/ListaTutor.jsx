@@ -1,48 +1,42 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import api from "../../services/api";
+import { Trash, PencilSimple } from "phosphor-react";
 import "./ListaTutor.css";
 
 export default function ListaTutor() {
+
   const [tutores, setTutores] = useState([]);
   const [busca, setBusca] = useState("");
 
   useEffect(() => {
-    //depois troca pela API 
-    setTutores([
-      {
-        id: 1,
-        nome: "Marcos Silva",
-        telefone: "(11) 90000-0000",
-        email: "marcos@gmail.com",
-        cpf: "123.456.789-00"
-      },
-      {
-        id: 2,
-        nome: "Juliana Ribeiro",
-        telefone: "(11) 98888-4444",
-        email: "juliana@gmail.com",
-        cpf: "321.654.987-11"
-      },
-      {
-        id: 3,
-        nome: "Fernanda Torres",
-        telefone: "(11) 97777-2222",
-        email: "fernanda@gmail.com",
-        cpf: "555.666.777-88"
-      },
-      {
-        id: 4,
-        nome: "Carlos Andrade",
-        telefone: "(11) 96666-9999",
-        email: "carlos@gmail.com",
-        cpf: "999.888.777-33"
-      }
-    ]);
+    listarTutores();
   }, []);
+
+  async function listarTutores() {
+    try {
+      const response = await api.get("http://localhost:8000/api/usuario");
+      setTutores(response.data);
+    } catch (error) {
+      console.error("Erro ao carregar tutores:", error);
+    }
+  }
+  console.log("tutores =", tutores);
 
   const filtrados = tutores.filter((t) =>
     t.nome.toLowerCase().includes(busca.toLowerCase())
   );
+
+  async function excluirTutor(idUsuario) {
+    if (!confirm("Tem certeza que deseja excluir este Tutor?")) return;
+
+    try {
+      await api.delete(`http://localhost:8000/api/usuario/${idUsuario}`);
+      setTutores((prev) => prev.filter((t) => t.idUsuario !== idUsuario));
+    } catch (error) {
+      console.error("Erro ao excluir:", error);
+    }
+  }
 
   return (
     <div className="listaTutor-container">
@@ -77,21 +71,19 @@ export default function ListaTutor() {
 
         <tbody>
           {filtrados.map((tutor) => (
-            <tr key={tutor.id}>
+            <tr key={tutor.idUsuario}>
               <td>{tutor.nome}</td>
               <td>{tutor.telefone}</td>
               <td>{tutor.email}</td>
               <td>{tutor.cpf}</td>
 
               <td className="acoes">
-                <NavLink
-                  to={`/EdicaoTutor`}
-                  className="btn-edit"
+                <NavLink to={`/EdicaoTutor/${tutor.idUsuario}`} className="btn-edit"
                 >
-                  ✏️
+                  <PencilSimple size={32} />
                 </NavLink>
 
-                <button className="btn-delete">🗑️</button>
+                <button className="btn-delete" onClick={() => excluirTutor(tutor.idUsuario)}><Trash size={32} /></button>
               </td>
             </tr>
           ))}

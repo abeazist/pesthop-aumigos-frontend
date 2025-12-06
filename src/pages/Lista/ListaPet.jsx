@@ -1,34 +1,69 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { Trash, PencilSimple } from "phosphor-react";
+import api from "../../services/api";
 import "./ListaPet.css";
 
 export default function ListaPet() {
+
   const [pets, setPets] = useState([]);
   const [busca, setBusca] = useState("");
 
   useEffect(() => {
-    // depois troca pela API
-    setPets([
-      {
-        id: 1,
-        nome: "Snoopy",
-        simpatinhas: "00000",
-        dono: "Charlie Brown",
-        foto: ""
-      },
-      {
-        id: 2,
-        nome: "Belinha",
-        simpatinhas: "00007",
-        dono: "Marina",
-        foto: ""
-      }
-    ]);
+    listarPets();
   }, []);
+
+  async function listarPets() {
+    try {
+      const response = await api.get("http://localhost:8000/api/pet");
+      setPets(response.data);
+    } catch (error) {
+      console.error("Erro ao carregar pets:", error);
+    }
+  }
+  console.log("pets =", pets);
 
   const filtrados = pets.filter((p) =>
     p.nome.toLowerCase().includes(busca.toLowerCase())
   );
+
+  async function excluirPet(idPet) {
+    if (!confirm("Tem certeza que deseja excluir este pet?")) return;
+
+    try {
+      await api.delete(`http://localhost:8000/api/pet/${idPet}`);
+      setPets((prev) => prev.filter((p) => p.idPet !== idPet));
+    } catch (error) {
+      console.error("Erro ao excluir:", error);
+    }
+  }
+
+  // const [pets, setPets] = useState([]);
+  // const [busca, setBusca] = useState("");
+
+  // useEffect(() => {
+  //   // depois troca pela API
+  //   setPets([
+  //     {
+  //       id: 1,
+  //       nome: "Snoopy",
+  //       simpatinhas: "00000",
+  //       dono: "Charlie Brown",
+  //       foto: ""
+  //     },
+  //     {
+  //       id: 2,
+  //       nome: "Belinha",
+  //       simpatinhas: "00007",
+  //       dono: "Marina",
+  //       foto: ""
+  //     }
+  //   ]);
+  // }, []);
+
+  // const filtrados = pets.filter((p) =>
+  //   p.nome.toLowerCase().includes(busca.toLowerCase())
+  // );
 
   return (
     <div className="listaPets-container">
@@ -63,9 +98,10 @@ export default function ListaPet() {
 
         <tbody>
           {filtrados.map((pet) => (
-            <tr key={pet.id}>
+            <tr key={pet.idPet}>
               <td>
-                <img src={pet.foto} alt={pet.nome} className="pet-foto" />
+                <img src="frajola.jpg" alt="" className="pet-foto"/>
+                {/* <img src={pet.foto} alt={pet.nome} className="pet-foto" /> */}
               </td>
               <td>{pet.nome}</td>
               <td>{pet.simpatinhas}</td>
@@ -78,10 +114,10 @@ export default function ListaPet() {
 
                   className="btn-edit"
                 >
-                  ✏️
+                  <PencilSimple size={32} />
                 </NavLink>
 
-                <button className="btn-delete">🗑️</button>
+                <button className="btn-delete" onClick={() => excluirPet(pet.idPet)}><Trash size={32} /></button>
               </td>
             </tr>
           ))}

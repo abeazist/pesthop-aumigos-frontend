@@ -21,7 +21,7 @@ export default function Agendamento() {
 
   async function handleSubmit() {
     try {
-      const res = await fetch("http://localhost:3000/agendamentos", {
+      const res = await fetch("http://localhost:8000/api/agendamentos", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
