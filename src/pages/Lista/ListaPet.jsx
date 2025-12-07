@@ -104,12 +104,12 @@ export default function ListaPet() {
                 {/* <img src={pet.foto} alt={pet.nome} className="pet-foto" /> */}
               </td>
               <td>{pet.nome}</td>
-              <td>{pet.simpatinhas}</td>
-              <td>{pet.dono}</td>
+              <td>{pet.sinpatinhas}</td>
+              <td>{pet.tutor}</td>
 
               <td className="acoes">
                 <NavLink
-                  to={`/EdicaoPet`}
+                  to={`/EdicaoPet/${pet.idPet}`}
                   //                  to={`/EdicaoPet/${pet.id}`}
 
                   className="btn-edit"
