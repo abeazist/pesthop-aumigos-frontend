@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './CadastroPet.css'
 import { Camera } from "phosphor-react";
 import { NavLink } from 'react-router-dom'
@@ -120,13 +120,61 @@ export default function CadastroPet() {
             "Ring Neck",
             "Vira-lata (SRD)"
         ]
-
-
-
-
     }
 
     const racasFiltradas = racas[tipoPet] || [];
+
+    function handleChange(e) {
+        setForm({ ...form, [e.target.name]: e.target.value });
+    }
+
+    const [tutores, setTutores] = useState([]);
+    const [form, setForm] = useState({
+        simpatinhas: "",
+        nome: "",
+        tipo: "",
+        raca: "",
+        idUsuario: "",
+        dataNascimento: "",
+    });
+
+    const cadastrarPet = async () => {
+        try {
+            const response = await fetch("http://localhost:8000/api/pet", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(form),
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                alert("Erro: " + errorData.error);
+                return;
+            }
+
+            alert("Pet cadastrado com sucesso!");
+            // redirecionar para perfil ou lista
+            window.location.href = "/PerfilTutor";
+        } catch (err) {
+            console.error(err);
+            alert("Erro ao cadastrar o pet.");
+        }
+    };
+
+    useEffect(() => {
+        async function carregarTutores() {
+            try {
+                const response = await fetch("http://localhost:8000/api/usuario");
+                const data = await response.json();
+                setTutores(data);
+            } catch (err) {
+                console.error("Erro ao carregar tutores", err);
+            }
+        }
+        carregarTutores();
+    }, []);
+
+
 
     return (
         <div className='boxCadastroPet'>
@@ -140,17 +188,17 @@ export default function CadastroPet() {
                     </div>
                     <div id='inputBox2'>
                         <label htmlFor="">Sinpatinhas</label>
-                        <input type="number" className='inputFormulario' />
+                        <input name="sinpatinhas" type="number" className='inputFormulario' onChange={handleChange} />
                         <br />
                         <label htmlFor="">Nome</label>
-                        <input type="text" className='inputFormulario' />
+                        <input name="nome" type="text" className='inputFormulario' onChange={handleChange} />
 
                     </div>
                 </div>
                 <div className='f2'>
                     <div id='inputBox3'>
                         <label htmlFor="">Tipo</label>
-                        <select name="" className='inputFormulario' onChange={(e) => { setTipoPet(e.target.value); setRaca(""); }}>
+                        <select name="tipo" className='inputFormulario' onChange={(e) => { setTipoPet(e.target.value); setRaca(""); handleChange(e) }}>
                             <option value="">Selecione</option>
                             <option value="cachorro">Cachorro</option>
                             <option value="gato">Gato</option>
@@ -165,26 +213,39 @@ export default function CadastroPet() {
 
                         </select>
                         <br />
-                        <label htmlFor="">Tutor</label>
-                        <input type="text" className='inputFormulario' />
+                        <label>Tutor</label>
+                        <select
+                            name="idUsuario"
+                            className="inputFormulario"
+                            value={form.idUsuario}
+                            onChange={handleChange}
+                        >
+                            <option value="">Selecione um tutor</option>
+
+                            {tutores.map((t) => (
+                                <option key={t.idUsuario} value={t.idUsuario}>
+                                    {t.nome}
+                                </option>
+                            ))}
+                        </select>
                     </div>
                     <div id='inputBox4'>
                         <label htmlFor="">Raça/Espécie</label>
-                        <select name="" className='inputFormulario' value={raca} onChange={(e) => setRaca(e.target.value)} disabled={!tipoPet}>
+                        <select name="raca" className='inputFormulario' value={form.raca} onChange={(e) => { setRaca(e.target.value); handleChange(e)}} disabled={!tipoPet}>
                             <option value="">Selecione</option>
                             {racasFiltradas.map((r) => (
-                                <option key={r} value={r}>{r}</option>
+                                <option key={r} value={r} onChange={handleChange}>{r}</option>
                             ))}
 
                         </select>
                         <br />
                         <label htmlFor="">Data de nascimento</label>
-                        <input type="date" className='inputFormulario' />
+                        <input name="dataNascimento" type="date" className='inputFormulario' onChange={handleChange} />
                     </div>
                 </div>
 
                 <NavLink to="/PerfilTutor" className="btnLink">
-                    <button id='btCadastra'>Cadastrar</button>
+                    <button id='btCadastra' onClick={cadastrarPet}>Cadastrar</button>
                 </NavLink>
 
                 <NavLink to="/ListaPet" className="btnLink">

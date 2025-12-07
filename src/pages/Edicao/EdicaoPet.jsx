@@ -1,8 +1,10 @@
 import './EdicaoPet.css'
 import { Camera } from "phosphor-react";
-import { NavLink } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
 
-export default function EdicaoPet() {
+export default function EdicaoPet() { 
+
+    const { id } = useParams();
 
     return (
         <div className='boxCadastroPet'>
