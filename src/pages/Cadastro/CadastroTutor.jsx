@@ -13,7 +13,8 @@ export default function CadastroTutor() {
         bairro: "",
         numero: "",
         email: "",
-        senha: ""
+        senha: "",
+        fotoTutor: ""
     });
 
     function handleChange(e) {
@@ -27,7 +28,8 @@ export default function CadastroTutor() {
             telefone: form.telefone,
             endereco: `${form.rua}, ${form.numero} - ${form.bairro}`,
             email: form.email,
-            senha: form.senha
+            senha: form.senha,
+            fotoTutor: form.fotoTutor
         };
 
         try {
@@ -54,6 +56,21 @@ export default function CadastroTutor() {
         }
     }
 
+    function handleFoto(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            setForm((prev) => ({
+                ...prev,
+                fotoTutor: reader.result.split(",")[1]
+            }));
+        };
+        reader.readAsDataURL(file);
+    }
+
+
     return (
         <div className='boxCadastroPet'>
             <div className='formularioTutor'>
@@ -62,7 +79,22 @@ export default function CadastroTutor() {
                 <div className='f1'>
                     <div id='inputBox1'>
                         <div id='cadFotoTutor'>
-                            <Camera size={32} />
+                            <label className="fotoLabel">
+                                {form.fotoTutor ? (
+                                    <img
+                                        src={`data:image/*;base64,${form.fotoTutor}`}
+                                        className="previewFoto"
+                                    />
+                                ) : (
+                                    <Camera size={32} />
+                                )}
+                                <input
+                                    type="file"
+                                    accept="image/*"
+                                    onChange={handleFoto}
+                                    style={{ display: "none" }}
+                                />
+                            </label>
                         </div>
                     </div>
 

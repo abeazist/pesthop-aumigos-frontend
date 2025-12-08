@@ -38,33 +38,6 @@ export default function ListaPet() {
     }
   }
 
-  // const [pets, setPets] = useState([]);
-  // const [busca, setBusca] = useState("");
-
-  // useEffect(() => {
-  //   // depois troca pela API
-  //   setPets([
-  //     {
-  //       id: 1,
-  //       nome: "Snoopy",
-  //       simpatinhas: "00000",
-  //       dono: "Charlie Brown",
-  //       foto: ""
-  //     },
-  //     {
-  //       id: 2,
-  //       nome: "Belinha",
-  //       simpatinhas: "00007",
-  //       dono: "Marina",
-  //       foto: ""
-  //     }
-  //   ]);
-  // }, []);
-
-  // const filtrados = pets.filter((p) =>
-  //   p.nome.toLowerCase().includes(busca.toLowerCase())
-  // );
-
   return (
     <div className="listaPets-container">
       <div className="listaPets-header">
@@ -100,7 +73,7 @@ export default function ListaPet() {
           {filtrados.map((pet) => (
             <tr key={pet.idPet}>
               <td>
-                <img src="frajola.jpg" alt="" className="pet-foto"/>
+                <img src={`data:image/*;base64,${pet.fotoPet}`} alt={pet.nome} className="pet-foto"/>
                 {/* <img src={pet.foto} alt={pet.nome} className="pet-foto" /> */}
               </td>
               <td>{pet.nome}</td>

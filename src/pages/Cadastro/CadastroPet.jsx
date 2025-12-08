@@ -136,6 +136,7 @@ export default function CadastroPet() {
         raca: "",
         idUsuario: "",
         dataNascimento: "",
+        fotoPet: "",
     });
 
     const cadastrarPet = async () => {
@@ -174,7 +175,19 @@ export default function CadastroPet() {
         carregarTutores();
     }, []);
 
+    function handleFoto(e) {
+        const file = e.target.files[0];
+        if (!file) return;
 
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            setForm((prev) => ({
+                ...prev,
+                fotoPet: reader.result.split(",")[1]
+            }));
+        };
+        reader.readAsDataURL(file);
+    }
 
     return (
         <div className='boxCadastroPet'>
@@ -182,8 +195,24 @@ export default function CadastroPet() {
                 <h3>Cadastro Pet</h3>
                 <div className='f1'>
                     <div id='inputBox1'>
-                        <div id='cadFotoPet'>
-                            <Camera size={32} />
+                        <div id='cadFotoTutor'>
+
+                            <label className="fotoLabel">
+                                {form.fotoPet ? (
+                                    <img
+                                        src={`data:image/*;base64,${form.fotoPet}`}
+                                        className="previewFoto"
+                                    />
+                                ) : (
+                                    <Camera size={32} />
+                                )}
+                                <input
+                                    type="file"
+                                    accept="image/*"
+                                    onChange={handleFoto}
+                                    style={{ display: "none" }}
+                                />
+                            </label>
                         </div>
                     </div>
                     <div id='inputBox2'>
@@ -231,7 +260,7 @@ export default function CadastroPet() {
                     </div>
                     <div id='inputBox4'>
                         <label htmlFor="">Raça/Espécie</label>
-                        <select name="raca" className='inputFormulario' value={form.raca} onChange={(e) => { setRaca(e.target.value); handleChange(e)}} disabled={!tipoPet}>
+                        <select name="raca" className='inputFormulario' value={form.raca} onChange={(e) => { setRaca(e.target.value); handleChange(e) }} disabled={!tipoPet}>
                             <option value="">Selecione</option>
                             {racasFiltradas.map((r) => (
                                 <option key={r} value={r} onChange={handleChange}>{r}</option>
