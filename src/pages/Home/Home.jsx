@@ -114,7 +114,7 @@ export default function Home() {
                 <h3>Galeria de pets</h3>
                 <Swiper
                     slidesPerView={3}
-                    
+
                     loop={true}
                     navigation={true}
                     modules={[Navigation]}
@@ -159,6 +159,12 @@ export default function Home() {
             </div>
 
             <div className="pg5" id="pg5">
+                <div className="corpoPg5">
+                    <h2>Veja quais pets mais passam por aqui!</h2>
+                    <p>um grafico aq</p>
+                   
+                </div>
+
 
             </div>
 

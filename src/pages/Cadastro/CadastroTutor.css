@@ -10,11 +10,11 @@
 
 }
 
-.fotoLabel{
+.fotoLabel {
     max-width: 200px;
     max-height: 200px;
     border-radius: 100%;
-    overflow: hidden;
+    overflow: clip;
     object-fit: contain;
     background-color: var(--branco);
     align-self: center;
@@ -22,6 +22,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-left: 0;
+    margin-bottom: 0;
     /* padding: 0; */
     /* margin: 0; */
     /* display: flex;
