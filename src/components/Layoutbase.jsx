@@ -39,4 +39,3 @@ export default function Layoutbase() {
 }
 
 
-// mano sei lá arrumar esse bagulho que tá empurrando tudo pra esquerda
