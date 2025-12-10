@@ -65,8 +65,8 @@ export default function Login() {
 
         {/* <a className="create-account">Criar Conta</a> */}
 
-        <NavLink to="/CadastroTutor">
-          <button className="create-account">Criar Conta</button>
+        <NavLink to="/CadastroTutor" className="create-account">
+        Criar Conta
         </NavLink>
       </div>
     </div>
