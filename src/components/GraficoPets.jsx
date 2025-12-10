@@ -16,7 +16,7 @@ export default function GraficoPets() {
 
   async function carregarDados() {
     try {
-      const response = await fetch("http://localhost:3000/api/pets"); // 🔥 TROQUE AQUI o endpoint correto
+      const response = await fetch("http://localhost:8000/api/pet"); // 🔥 TROQUE AQUI o endpoint correto
       const pets = await response.json();
 
       setQuantidade(pets.length); // quantidade total

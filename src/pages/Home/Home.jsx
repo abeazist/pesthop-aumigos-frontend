@@ -8,6 +8,7 @@ import 'swiper/css/navigation';
 import { Pagination, Navigation } from 'swiper/modules';
 import { Bathtub, Scissors, ShoppingBag, ListPlus } from "phosphor-react";
 import { NavLink } from "react-router-dom";
+import GraficoPets from "../../components/GraficoPets.jsx";
 
 
 export default function Home() {
@@ -161,11 +162,8 @@ export default function Home() {
             <div className="pg5" id="pg5">
                 <div className="corpoPg5">
                     <h2>Veja quais pets mais passam por aqui!</h2>
-                   <div>
-                    <h1>Veja quais pets mais passam por aqui!</h1>
-                    <GraficoPets />  {/* 🔥 Aqui entra o gráfico real */}
-                    </div>
-                   
+                    <GraficoPets />
+                     
                 </div>
 
 
