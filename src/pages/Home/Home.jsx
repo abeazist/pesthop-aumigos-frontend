@@ -161,7 +161,10 @@ export default function Home() {
             <div className="pg5" id="pg5">
                 <div className="corpoPg5">
                     <h2>Veja quais pets mais passam por aqui!</h2>
-                    <p>um grafico aq</p>
+                   <div>
+                    <h1>Veja quais pets mais passam por aqui!</h1>
+                    <GraficoPets />  {/* 🔥 Aqui entra o gráfico real */}
+                    </div>
                    
                 </div>
 
